@@ -29,15 +29,3 @@ Next.js 14 (App Router), Supabase (Postgres), Anthropic API, Hunter.io, Resend, 
 
 With `DEMO_MODE=true`, the send route never calls Resend and returns a fake id, so the approve flow can be shown without sending anything. Sample addresses use the reserved `example.org` domain.
 
-## Known limitations
-
-- **No user authentication.** The database policies in `schema.sql` give the anonymous role full access, and the API routes have no login check. This is acceptable for a local demo with fictional data and not acceptable for real data. Do not deploy it publicly with real keys or real leads.
-- Several routes call paid APIs, so protect any deployed copy.
-- The client logic in `lib/appLogic.js` is one large file that would be better split into modules.
-
-## What I would do next
-
-- Add authentication and per-user database policies.
-- Add send-rate and spend limits per campaign.
-- Track replies and measure results per campaign, such as drafts approved, emails sent, and meetings booked.
-- Add automated tests for the draft and duplicate-filtering logic.
